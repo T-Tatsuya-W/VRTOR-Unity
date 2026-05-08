@@ -1,20 +1,12 @@
 using TonalSpace.Core;
 
-var vector = new PitchClassVector();
-var midiNotes = new[] { 60, 64, 67, 71 }; // Cmaj7
+var pcdInput = new double[] { 1, 0.2, 0.1, 0.4, 0.8, 0.6, 0.3, 0.9, 0.5, 0.7, 0.05, 0.15 };
 
-foreach (var note in midiNotes)
-{
-    vector.AddMidiNote(note);
-}
+var (fifthPhase, thirdPhase, thirdMagnitude) = PCDConverter.PCD2DFT(pcdInput);
+var reconstructedPcd = PCDConverter.DFT2PCD(fifthPhase, thirdPhase, thirdMagnitude);
 
-var frame = TonalFrame.FromPitchClassVector(vector);
-
-Console.WriteLine("Tonal Space Smoke Test");
-Console.WriteLine("----------------------");
-Console.WriteLine($"Input MIDI notes: {string.Join(", ", midiNotes)}");
-Console.WriteLine($"Pitch class bins: {string.Join(", ", frame.PitchClassBins.Select(v => v.ToString("0.##")))}");
-Console.WriteLine($"DFT coefficient count: {frame.DftCoefficients.Count}");
-Console.WriteLine($"Toroidal angle (k=5 phase): {frame.ToroidalAngle:0.000}");
-Console.WriteLine($"Poloidal angle (k=3 phase): {frame.PoloidalAngle:0.000}");
-Console.WriteLine($"Radial emphasis (|k=3|): {frame.RadialEmphasis:0.000}");
+Console.WriteLine("PCD/DFT Smoke Test");
+Console.WriteLine("------------------");
+Console.WriteLine($"PCD input (12 values): {string.Join(", ", pcdInput.Select(v => v.ToString("0.###")))}");
+Console.WriteLine($"PCD2DFT output: fifthPhase={fifthPhase:0.###}, thirdPhase={thirdPhase:0.###}, thirdMagnitude={thirdMagnitude:0.###}");
+Console.WriteLine($"DFT2PCD output (12 values): {string.Join(", ", reconstructedPcd.Select(v => v.ToString("0.###")))}");
