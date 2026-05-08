@@ -1,0 +1,38 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+UserSettings/
+
+# Unity auto-generated files
+*.pidb
+*.suo
+*.user
+*.userprefs
+*.unityproj
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity package cache
+/Packages/packages-lock.json
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.sln.iml
+
+# .NET build artifacts
+**/bin/
+**/obj/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
