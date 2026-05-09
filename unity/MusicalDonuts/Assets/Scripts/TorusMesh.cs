@@ -1,30 +1,15 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class TorusMesh : MonoBehaviour
 {
-    private Keyboard keyboard;
-    void Awake()
-    {
-        keyboard = Keyboard.current;
-    }
     public float majRadius = 1f;
     public float minorRadius = 0.5f;
-    public int numSegments = 16;
+    public int numSegments = 1;
 
     void Start()
     {
         GenerateTorus();
-    }
-
-    void Update()
-    {
-        // if the radiu or segments are changed, regenerate torus
-        if (keyboard != null && keyboard.spaceKey.wasPressedThisFrame){ 
-            
-            GenerateTorus();
-        }
     }
 
     void GenerateTorus()
@@ -50,8 +35,8 @@ public class TorusMesh : MonoBehaviour
                 float phi = (float)j / tubularSegments * 2f * Mathf.PI;
 
                 float x = (majRadius + minorRadius * Mathf.Cos(theta)) * Mathf.Cos(phi);
-                float y = (majRadius + minorRadius * Mathf.Cos(theta)) * Mathf.Sin(phi);
-                float z = minorRadius * Mathf.Sin(theta);
+                float z = (majRadius + minorRadius * Mathf.Cos(theta)) * Mathf.Sin(phi);
+                float y = minorRadius * Mathf.Sin(theta);
 
                 vertices[vertexIndex] = new Vector3(x, y, z);
 

@@ -43,13 +43,20 @@
     <UnityVersion>6000.4.6f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Users\Toby T Watkinson\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.2.2\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\PCD DFT\PCDConverter.cs" />
+    <Compile Include="Assets\Scripts\PCDVisualiser.cs" />
+    <Compile Include="Assets\Scripts\PCD2Torus.cs" />
+    <Compile Include="Assets\Scripts\PCD DFT\ToroidalCoordinates.cs" />
     <Compile Include="Assets\Scripts\TorusMesh.cs" />
-    <Compile Include="Assets\Scripts\ColourCubeRed.cs" />
+    <Compile Include="Assets\Scripts\MIDI2PCD.cs" />
+    <Compile Include="Assets\Scripts\ColourRed.cs" />
+    <Compile Include="Assets\Scripts\PCD DFT\Dft12.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1109,6 +1116,10 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="RtMidi.Runtime">
+      <HintPath>Library\ScriptAssemblies\RtMidi.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1119,6 +1130,10 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Minis.Editor">
+      <HintPath>Library\ScriptAssemblies\Minis.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Editor">
@@ -1283,6 +1298,10 @@
     </Reference>
     <Reference Include="Unity.Multiplayer.Center.Common">
       <HintPath>Library\ScriptAssemblies\Unity.Multiplayer.Center.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Minis">
+      <HintPath>Library\ScriptAssemblies\Minis.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Burst">
