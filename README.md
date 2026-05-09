@@ -9,10 +9,10 @@ Yet to check connecting windows to midi keyboard, but i assume it will find it a
 
 #### vis -> quest
 Meta Horizon Link to connect to Quest3.
-Now trying SteamVR to connect to Quest3 from much lower spec laptop.
+Now trying SteamVR to connect to Quest3 from much lower spec laptop... my laptop was too low spec. the integrated graphics was not supported
 
 
-### Linux
+### Linux X
 #### Midi -> vis
 When connected via USB to a yamaha electric piano; running the program successfully found and reacted to that midi input. 
 When testing internally, I used vmpk. and with the visualiser running, had options for ALSA midi input clients. (though it would no longer play the notes on speakers once connected to this)
@@ -20,6 +20,8 @@ When testing internally, I used vmpk. and with the visualiser running, had optio
 #### vis -> quest
 Tryed WiVRn to connect to quest 3 headset and that would work, but unity OpenXR does not currently support linux, so I cant build a linux version with the VR stuff. 
 
+### Quest
+Well I couldnt get it to go via my laptop because linux problems, and also old laptop problems. but maybe we can put the progrma directly on my quest3 and plug straight into the keyboard from there?
 
 
 ## MISC
