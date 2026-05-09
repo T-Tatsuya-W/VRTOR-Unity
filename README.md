@@ -1,5 +1,28 @@
 # Tonal Space VR
 
+## Setup and Testing
+
+### Windows
+#### Midi -> vis
+Using VMPK as a midi source, I then also made a loopback thing on loopMidi and this was supposedly successful but now it is not responding. 
+Yet to check connecting windows to midi keyboard, but i assume it will find it and work well.
+
+#### vis -> quest
+Meta Horizon Link to connect to Quest3.
+Now trying SteamVR to connect to Quest3 from much lower spec laptop.
+
+
+### Linux
+#### Midi -> vis
+When connected via USB to a yamaha electric piano; running the program successfully found and reacted to that midi input. 
+When testing internally, I used vmpk. and with the visualiser running, had options for ALSA midi input clients. (though it would no longer play the notes on speakers once connected to this)
+
+#### vis -> quest
+Tryed WiVRn to connect to quest 3 headset and that would work, but unity OpenXR does not currently support linux, so I cant build a linux version with the VR stuff. 
+
+
+
+## MISC
 Tonal Space VR is a C#-first project for visualizing musical harmony in a 3D tonal space.
 
 The long-term goal is a **PCVR/OpenXR visualizer** that reacts to live MIDI performance from a digital piano over USB-MIDI. The short-term goal is a **desktop visualizer and analysis pipeline** that is easy to build, test, and iterate.

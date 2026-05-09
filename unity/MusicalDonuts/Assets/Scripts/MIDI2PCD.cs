@@ -7,7 +7,21 @@ public sealed class MIDI2PCD : MonoBehaviour
     private readonly float[] activeNoteVelocities = new float[128];
     private readonly float[] pitchClassDistribution = new float[12];
     public float[] PitchClassDistribution => pitchClassDistribution;
+    void Start()
+    {
+        Debug.Log("All InputSystem devices:");
 
+        foreach (var device in InputSystem.devices)
+        {
+            Debug.Log($"{device.displayName} | {device.GetType().FullName} | layout={device.layout}");
+        }
+
+        Debug.Log("MIDI devices via Minis:");
+        foreach (var midi in InputSystem.devices)
+        {
+            Debug.Log($"MIDI: {midi.displayName}");
+        }
+    }
     private void Awake()
     {
         Application.runInBackground = true;
@@ -51,7 +65,7 @@ public sealed class MIDI2PCD : MonoBehaviour
 
     private void OnDeviceChange(InputDevice device, InputDeviceChange change)
     {
-        Debug.Log($"Device change: {device.displayName} / {change}");
+        // Debug.Log($"Device change: {device.displayName} / {change}");
 
         if (device is MidiDevice midi && change == InputDeviceChange.Added)
         {
@@ -66,14 +80,14 @@ public sealed class MIDI2PCD : MonoBehaviour
     {
         activeNoteVelocities[note.noteNumber] = velocity;
         rebuildPCD();
-        Debug.Log($"NOTE ON  note={note.noteNumber}, velocity={velocity:F2}");
+        // Debug.Log($"NOTE ON  note={note.noteNumber}, velocity={velocity:F2}");
     }
 
     private void OnNoteOff(MidiNoteControl note)
     {
         activeNoteVelocities[note.noteNumber] = 0f;
         rebuildPCD();
-        Debug.Log($"NOTE OFF note={note.noteNumber}");
+        // Debug.Log($"NOTE OFF note={note.noteNumber}");
     }
 
     private void rebuildPCD()
@@ -89,10 +103,10 @@ public sealed class MIDI2PCD : MonoBehaviour
             pitchClassDistribution[pitchClass] += velocity;
         }
 
-        Debug.Log(
-            $"PCD: C={pitchClassDistribution[0]:F2}, C#={pitchClassDistribution[1]:F2}, D={pitchClassDistribution[2]:F2}, D#={pitchClassDistribution[3]:F2}, " +
-            $"E={pitchClassDistribution[4]:F2}, F={pitchClassDistribution[5]:F2}, F#={pitchClassDistribution[6]:F2}, G={pitchClassDistribution[7]:F2}, " +
-            $"G#={pitchClassDistribution[8]:F2}, A={pitchClassDistribution[9]:F2}, A#={pitchClassDistribution[10]:F2}, B={pitchClassDistribution[11]:F2}"
-        );
+        // Debug.Log(
+        //     $"PCD: C={pitchClassDistribution[0]:F2}, C#={pitchClassDistribution[1]:F2}, D={pitchClassDistribution[2]:F2}, D#={pitchClassDistribution[3]:F2}, " +
+        //     $"E={pitchClassDistribution[4]:F2}, F={pitchClassDistribution[5]:F2}, F#={pitchClassDistribution[6]:F2}, G={pitchClassDistribution[7]:F2}, " +
+        //     $"G#={pitchClassDistribution[8]:F2}, A={pitchClassDistribution[9]:F2}, A#={pitchClassDistribution[10]:F2}, B={pitchClassDistribution[11]:F2}"
+        // );
     }
 }

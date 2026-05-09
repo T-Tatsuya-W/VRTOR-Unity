@@ -9,9 +9,17 @@ public class PCD2Torus : MonoBehaviour
     private void Update()
     {
         float[] distribution = PCDSource.PitchClassDistribution;
+        
+        // Check if all PCD values are 0 (no information)
+        if (distribution.All(f => f == 0f))
+        {
+            transform.position = Vector3.zero;
+            return;
+        }
+        
         double[] pcdDoubles = distribution.Select(f => (double)f).ToArray();
         var (fifthPhase, thirdPhase, thirdMagnitude) = PCDConverter.PCD2DFT(pcdDoubles);
-        Debug.Log($"PCD2Torus DFT: FifthPhase: {fifthPhase:F2}, ThirdPhase: {thirdPhase:F2}, ThirdMagnitude: {thirdMagnitude:F2}");
+        // Debug.Log($"PCD2Torus DFT: FifthPhase: {fifthPhase:F2}, ThirdPhase: {thirdPhase:F2}, ThirdMagnitude: {thirdMagnitude:F2}");
 
 
         // Map DFT values to xyz coordinates in the torus.
