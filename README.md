@@ -21,7 +21,10 @@ When testing internally, I used vmpk. and with the visualiser running, had optio
 Tryed WiVRn to connect to quest 3 headset and that would work, but unity OpenXR does not currently support linux, so I cant build a linux version with the VR stuff. 
 
 ### Quest
-Well I couldnt get it to go via my laptop because linux problems, and also old laptop problems. but maybe we can put the progrma directly on my quest3 and plug straight into the keyboard from there?
+Well I couldnt get it to go via my laptop because linux problems, and also old laptop problems. but maybe we can put the progrma directly on my quest3 and plug straight into the keyboard from there. YEP. some settings were fiddly but now plugging headset into the midi keyboard works and visualised. now just to tidy that up, make it passthrough and make the vis pretty again.
+
+still no luck getting passthrouhg to work so im stuck in the black void there. 
+will bench this stuff and work on the actual vis to be better and more usable like adding in the waypoints and colouring
 
 
 ## MISC
